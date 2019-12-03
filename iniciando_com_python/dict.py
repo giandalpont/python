@@ -21,3 +21,6 @@ print(people)
 if 'Wesley' in people:
     print("\npeople['Wesley']")
     print(people['Wesley'])
+
+for key, value in cars.items():
+    print(key + " = " + value)
