@@ -2,14 +2,9 @@
 import getpass
 import os
 
-if os.name == 'nt':
-    clear = lambda: os.system('nt')
-else:
-    clear  = lambda: os.system('clear')
+clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 while True:
-
-    clear()
 
     print(' ')
     print("*******************************************")
@@ -57,4 +52,3 @@ while True:
     print(' ')
     input('Precione <ENTER> para continuar...')
     clear()
-
