@@ -80,18 +80,11 @@ def insert_money_slips():
 def withdrew():
     value_typed = input('Digite o valor a ser sacado: ')
     value_int = int(value_typed)
-    
-    money_slips_user = count_money_slips(value_int)['money_slips_user']
-    value_int = count_money_slips(value_int)['value_int']
-    
-    # if value_int // 50 > 0 and value_int // 50 <= money_slips['50']:
-    #     money_slips_user['50'] = value_int // 50
-    #     value_int = value_int - value_int // 50 * 50
-    
-    # if value_int // 20 > 0 and value_int // 20 <= money_slips['20']:
-    #     money_slips_user['20'] = value_int // 20
-    #     value_int = value_int - value_int // 20 * 20
 
+    count_slip = count_money_slips(value_int)
+    value_int = count_slip[0]
+    money_slips_user = count_slip[1]
+    
     if value_int != 0:
         print('Caixa não tem cédulas disponíves para este valor!')
     else :
@@ -109,8 +102,8 @@ def count_money_slips(value_int):
         if value_int // value > 0 and value_int // value <= money_slips[str(value)]:
             money_slips_user[str(value)] = value_int // value
             value_int = value_int - value_int // value * value
-     
-    return {'money_slips_user': money_slips_user, 'value_int': value_int}
+    
+    return value_int, money_slips_user
 
 def auth_account():
     account_typed = input('Digite sua conta: ')
